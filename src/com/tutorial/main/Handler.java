@@ -6,11 +6,11 @@ import java.util.LinkedList;
 public class Handler {
     LinkedList<GameObject> object = new LinkedList<GameObject>();
 
-    public void tick(){
+    public void tick(Controller c){
         for(int i = 0; i < object.size(); i++){
             GameObject tempObject = object.get(i);
 
-            tempObject.tick();
+            tempObject.tick(c);
         }
     }
 

@@ -13,10 +13,12 @@ public class Game extends Canvas implements Runnable{
     private Handler handler;
 
     public Game(){
-        new Window(WIDTH, HEIGHT, "GameTime", this);
-
         handler = new Handler();
         handler.addObject(new Player(100, 100, ID.Player));
+
+        new Window(WIDTH, HEIGHT, "GameTime", this);
+
+
     }
 
     public synchronized void start(){
@@ -42,6 +44,7 @@ public class Game extends Canvas implements Runnable{
         double delta = 0;
         long timer = System.currentTimeMillis();
         int frames = 0;
+        Controller c = new Controller();
         while(running)
         {
             long now = System.nanoTime();
@@ -49,7 +52,7 @@ public class Game extends Canvas implements Runnable{
             lastTime = now;
             while(delta >=1)
             {
-                tick();
+                tick(c);
                 delta--;
             }
             if(running)
@@ -66,8 +69,9 @@ public class Game extends Canvas implements Runnable{
         stop();
     }
 
-    private void tick(){
-        handler.tick();
+    private void tick(Controller c){
+
+        handler.tick(c);
     }
 
     private void render(){
