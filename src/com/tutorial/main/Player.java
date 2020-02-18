@@ -2,6 +2,7 @@ package com.tutorial.main;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
+import java.util.HashMap;
 
 public class Player extends GameObject{
 
@@ -12,17 +13,17 @@ public class Player extends GameObject{
 
     }
 
-    public void tick(Controller c){
-        if(c.keys.get(KeyEvent.VK_W) == true){
+    public void tick(HashMap keys){
+        if(keys.get(KeyEvent.VK_W)){
             y +=1;
         }
-        if(c.keys.get(KeyEvent.VK_S) == true){
+        if(keys.get(KeyEvent.VK_S) == true){
             y -=1;
         }
-        if(c.keys.get(KeyEvent.VK_A) == true){
+        if(keys.get(KeyEvent.VK_A) == true){
             x -=1;
         }
-        if(c.keys.get(KeyEvent.VK_D) == true){
+        if(keys.get(KeyEvent.VK_D) == true){
             x +=1;
         }
 

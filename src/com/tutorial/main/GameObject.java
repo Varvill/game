@@ -1,6 +1,7 @@
 package com.tutorial.main;
 
 import java.awt.*;
+import java.util.HashMap;
 
 public abstract class GameObject {
 
@@ -14,7 +15,7 @@ public abstract class GameObject {
         this.id = id;
     }
 
-    public abstract void tick(Controller c);
+    public abstract void tick(HashMap keys);
 
     public abstract void render(Graphics g);
 
